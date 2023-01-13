@@ -1,17 +1,17 @@
 <?php
-class OptionController
+class OpcionController
 {
     private $connection;
-    public static $KEY = "tipo";
+    public static $KEY = "opcion";
     function __construct($connection)
     {
         $this->connection = $connection;
     }
     //guardar item, cierto si se ha podido insertar
-    function save(Tipo $item):bool
+    function save(Opcion $item): bool
     {
-        $this->connection->hset(TipoController::$KEY, $item->getId(), json_encode($item));
-        $tempo = $this->connection->hget(TipoController::$KEY, $item->getId());
+        $this->connection->hset(OpcionController::$KEY, $item->getId(), json_encode($item));
+        $tempo = $this->connection->hget(OpcionController::$KEY, $item->getId());
         if ($tempo != null)
             return true;
         else
@@ -20,7 +20,7 @@ class OptionController
     //borra el elemento
     function remove(int $id): bool
     {
-        $tempo = $this->connection->hdel(TipoController::$KEY, $id);
+        $tempo = $this->connection->hdel(OpcionController::$KEY, $id);
         if ($tempo != null)
             return
                 true;
@@ -30,27 +30,27 @@ class OptionController
 
     function getAll(): ?array
     {
-        $items=null;
-        
-        $elements=$this->connection->hgetAll(TipoController::$KEY);
-        if($elements!=null){
-            $items= array();
-            foreach ($elements as $json_text){
-                $tempo=new Tipo();
+        $items = null;
+
+        $elements = $this->connection->hgetAll(OpcionController::$KEY);
+        if ($elements != null) {
+            $items = array();
+            foreach ($elements as $json_text) {
+                $tempo = new Opcion();
                 $tempo->loadfromJSON($json_text);
-                array_push($items,$tempo);
+                array_push($items, $tempo);
             }
         }
         return $items;
     }
-    function getById(int $id): ?Tipo
+    function getById(int $id): ?Opcion
     {
         $item = null;
-        $json_text = $this->connection->hget(TipoController::$KEY, $id);
+        $json_text = $this->connection->hget(OpcionController::$KEY, $id);
         if ($json_text != null) {
-            $item = new Tipo();
+            $item = new Opcion();
             $item->loadfromJSON($json_text);
         }
-        return $item;        
+        return $item;
     }
 }

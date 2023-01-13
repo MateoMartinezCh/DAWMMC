@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-// echo dirname(__FILE__,2) ."/OpcionController.php";
 include(dirname(__FILE__) . "/../Opcion.php");
 include(dirname(__FILE__) . "/../OpcionController.php");
 final class OpcionTest extends TestCase

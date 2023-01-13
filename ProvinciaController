@@ -2,16 +2,16 @@
 class ProvinciaController
 {
     private $connection;
-    public static $KEY = "tipo";
+    public static $KEY = "provincia";
     function __construct($connection)
     {
         $this->connection = $connection;
     }
     //guardar item, cierto si se ha podido insertar
-    function save(Tipo $item):bool
+    function save(Provincia $item):bool
     {
-        $this->connection->hset(TipoController::$KEY, $item->getId(), json_encode($item));
-        $tempo = $this->connection->hget(TipoController::$KEY, $item->getId());
+        $this->connection->hset(ProvinciaController::$KEY, $item->getId(), json_encode($item));
+        $tempo = $this->connection->hget(ProvinciaController::$KEY, $item->getId());
         if ($tempo != null)
             return true;
         else
@@ -20,7 +20,7 @@ class ProvinciaController
     //borra el elemento
     function remove(int $id): bool
     {
-        $tempo = $this->connection->hdel(TipoController::$KEY, $id);
+        $tempo = $this->connection->hdel(ProvinciaController::$KEY, $id);
         if ($tempo != null)
             return
                 true;
@@ -32,23 +32,23 @@ class ProvinciaController
     {
         $items=null;
         
-        $elements=$this->connection->hgetAll(TipoController::$KEY);
+        $elements=$this->connection->hgetAll(ProvinciaController::$KEY);
         if($elements!=null){
             $items= array();
             foreach ($elements as $json_text){
-                $tempo=new Tipo();
+                $tempo=new Provincia();
                 $tempo->loadfromJSON($json_text);
                 array_push($items,$tempo);
             }
         }
         return $items;
     }
-    function getById(int $id): ?Tipo
+    function getById(int $id): ?Provincia
     {
         $item = null;
-        $json_text = $this->connection->hget(TipoController::$KEY, $id);
+        $json_text = $this->connection->hget(ProvinciaController::$KEY, $id);
         if ($json_text != null) {
-            $item = new Tipo();
+            $item = new Provincia();
             $item->loadfromJSON($json_text);
         }
         return $item;        
@@ -57,7 +57,7 @@ class ProvinciaController
 /*     function getAllLocalidades():?array
     {
         $item = null;
-        $elements=$this->connection->hgetAll(TipoController::$KEY);
+        $elements=$this->connection->hgetAll(ProvinciaController::$KEY);
 
 
     }
