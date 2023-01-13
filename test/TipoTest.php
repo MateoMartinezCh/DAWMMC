@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-include(dirname(__FILE__) . "../Tipo.php");
-include(dirname(__FILE__) . "../TipoController.php");
+include(dirname(__FILE__) . "/../Tipo.php");
+include(dirname(__FILE__) . "/../TipoController.php");
 final class TipoTest extends TestCase
 {
     private $connection;

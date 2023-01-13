@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-include(dirname(__FILE__) . "../Provincia.php");
-include(dirname(__FILE__) . "../Localidad.php");
-include(dirname(__FILE__) . "../ProvinciaController.php");
+include(dirname(__FILE__) . "/../Provincia.php");
+include(dirname(__FILE__) . "/../Localidad.php");
+include(dirname(__FILE__) . "/../ProvinciaController.php");
 final class ProvinciaTest extends TestCase
 {
     private $connection;
