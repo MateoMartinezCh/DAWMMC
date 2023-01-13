@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-include(dirname(__FILE__) . "/../Opcion.php");
-include(dirname(__FILE__) . "/../OpcionController.php");
+include(dirname(__FILE__) . "/../../Opcion.php");
+include(dirname(__FILE__) . "/../../OpcionController.php");
 final class OpcionTest extends TestCase
 {
     private $connection;
