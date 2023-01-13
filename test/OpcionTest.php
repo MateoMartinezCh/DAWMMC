@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
+echo 'dirname(__FILE__) . "/../Opcion.php"';
 include(dirname(__FILE__) . "/../Opcion.php");
 include(dirname(__FILE__) . "/../OpcionController.php");
 final class OpcionTest extends TestCase
@@ -49,7 +50,7 @@ final class OpcionTest extends TestCase
     }
     public function testGetAll()
     {
-        $items=$this->controller->getAll();    
-        $this->assertEquals(count($items),2);
-    }   
+        $items = $this->controller->getAll();
+        $this->assertEquals(count($items), 2);
+    }
 }
