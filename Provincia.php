@@ -32,7 +32,7 @@ class Provincia implements JsonSerializable
     {
         $this->name = $name;
     }
-    function setActive(int $active)
+    function setActive(bool $active)
     {
         $this->active = $active;
     }
