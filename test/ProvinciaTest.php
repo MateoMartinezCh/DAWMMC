@@ -21,7 +21,7 @@ final class ProvinciaTest extends TestCase
         $item = new Provincia();
         $item->setId(1);
         $item->setName("Alicante");
-        $item->setActive(true);
+        $item->setAcive(true);
         $localidad = new Localidad();
         $localidad->setId(1);
         $localidad->setName("Rojales");
@@ -43,7 +43,7 @@ final class ProvinciaTest extends TestCase
         $item = new Provincia();
         $item->setId(2);
         $item->setName("Murcia");
-        $item->setActive(true);
+        $item->setAcive(true);
 
         $localidad = new Localidad();
         $localidad->setId(4);
@@ -64,7 +64,7 @@ final class ProvinciaTest extends TestCase
         $item = new Provincia();
         $item->setId(3);
         $item->setName("Albacete");
-        $item->setActive(true);
+        $item->setAcive(true);
 
         $localidad = new Localidad();
         $localidad->setId(1);

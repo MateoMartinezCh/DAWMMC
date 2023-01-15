@@ -3,7 +3,7 @@ class Provincia implements JsonSerializable
 {
     protected $name;
     protected $id;
-    protected $active;
+    protected $acive;
     protected $localidades;
     function __construct()
     {
@@ -14,7 +14,7 @@ class Provincia implements JsonSerializable
         $tempo = json_decode($json, true);
         $this->id = $tempo["id"];
         $this->name = $tempo["name"];
-        $this->active = $tempo["active"];
+        $this->acive = $tempo["acive"];
     }
     function getName(): string
     {
@@ -24,17 +24,17 @@ class Provincia implements JsonSerializable
     {
         return $this->id;
     }
-    function getActive(): int
+    function getAcive(): int
     {
-        return $this->active;
+        return $this->acive;
     }
     function setName(string $name)
     {
         $this->name = $name;
     }
-    function setActive(bool $active)
+    function setAcive(bool $acive)
     {
-        $this->active = $active;
+        $this->acive = $acive;
     }
     function setId(int $id)
     {
@@ -46,13 +46,19 @@ class Provincia implements JsonSerializable
             [
                 'id'   => $this->getId(),
                 'name' => $this->getName(),
-                'active' => $this->getActive()
-
-                //'localidades' => $this->getLocalidades()
+                'localidades' => $this->getLocalidades()
             ];
     }
     public function addLocalidad(Localidad  $localidad): void
     {
         $this->localidades["{$localidad->getName()}"] = $localidad;
+    }
+    public function getLocalidades(): array
+    {
+        $localidades = [];
+        foreach ($this->localidades as $localidad) {
+            $localidades[] = $localidad->jsonSerialize();
+        }
+        return $localidades;
     }
 }
