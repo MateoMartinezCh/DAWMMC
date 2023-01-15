@@ -4,7 +4,7 @@ class Provincia implements JsonSerializable
     protected $name;
     protected $id;
     protected $acive;
-    protected $localidades;
+    protected $localidades = [];
     function __construct()
     {
     }
