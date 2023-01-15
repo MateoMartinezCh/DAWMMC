@@ -3,7 +3,6 @@ class Localidad implements JsonSerializable
 {
     protected $name;
     protected $id;
-    protected $active;
     function __construct()
     {
     }
@@ -13,7 +12,6 @@ class Localidad implements JsonSerializable
         $tempo = json_decode($json, true);
         $this->id = $tempo["id"];
         $this->name = $tempo["name"];
-        $this->active = $tempo["active"];
     }
     function getName(): string
     {
@@ -23,17 +21,10 @@ class Localidad implements JsonSerializable
     {
         return $this->id;
     }
-    function getActive(): int
-    {
-        return $this->active;
-    }
+   
     function setName(string $name)
     {
         $this->name = $name;
-    }
-    function setActive(int $active)
-    {
-        $this->active = $active;
     }
     function setId(int $id)
     {
@@ -45,7 +36,6 @@ class Localidad implements JsonSerializable
             [
                 'id'   => $this->getId(),
                 'name' => $this->getName(),
-                'active' => $this->getActive()
             ];
     }
 }
