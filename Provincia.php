@@ -46,6 +46,13 @@ class Provincia implements JsonSerializable
             [
                 'id'   => $this->getId(),
                 'name' => $this->getName()
+
+                //'localidades' => $this->getLocalidades()
             ];
+    }
+    public function addLocalidad(Localidad  $localidad): void
+    {
+        $this->localidades["{$localidad->getName()}"] = $localidad;
+        var_dump($this->localidades);
     }
 }
