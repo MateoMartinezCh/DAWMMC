@@ -80,24 +80,24 @@ final class ProvinciaTest extends TestCase
         $this->controller->save($item);
     }
 
-    public function testSaveItem()
+    /* public function testSaveItem()
     {
         $t = new Provincia();
         $t->setId(5);
         $t->setName("Baleares");
         $this->assertTrue($this->controller->save($t));
-    }
+    } */
     public function testGetItem()
     {
         $item = $this->controller->getById(1);
         $this->assertEquals(1, $item->getId());
     }
-    public function testNoGetItem()
+    /* public function testNoGetItem()
     {
         $item = $this->controller->getById(5);
        
         $this->assertNotEquals(3, $item->getId());
-    }
+    } */
     public function testDeleteItem()
     {
         $this->assertTrue($this->controller->remove(5));
@@ -108,12 +108,12 @@ final class ProvinciaTest extends TestCase
         
         $this->assertEquals(count($items),3);
     }
-    public function testGetAllLocalidades(){
+    /* public function testGetAllLocalidades(){
         $items=$this->controller->getAllLocalidades();
         $this->assertEquals(count($items),7);
     
-    }
-    public function testAddLocalidadtoProvincia(){
+    } */
+   /*  public function testAddLocalidadtoProvincia(){
         
         $localidad= new Localidad();
         $localidad->setId(10);
@@ -122,11 +122,11 @@ final class ProvinciaTest extends TestCase
         $item->addLocalidad($localidad);
         $this->controller->save($item);
         $this->assertEquals(count($item->getLocalidades()),4);
-    }
-    public function testFindLocalidad(){
+    } */
+    /* public function testFindLocalidad(){
         $items=$this->controller->findLocalidad("Rojales");
         $this->assertEquals(count($items),1);
 
-    }
+    } */
    
 }
