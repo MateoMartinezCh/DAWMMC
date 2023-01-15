@@ -8,7 +8,7 @@ class ProvinciaController
         $this->connection = $connection;
     }
     //guardar item, cierto si se ha podido insertar
-    function save(Provincia $item):bool
+    function save(Provincia $item): bool
     {
         $this->connection->hset(ProvinciaController::$KEY, $item->getId(), json_encode($item));
         $tempo = $this->connection->hget(ProvinciaController::$KEY, $item->getId());
@@ -30,15 +30,15 @@ class ProvinciaController
 
     function getAll(): ?array
     {
-        $items=null;
-        
-        $elements=$this->connection->hgetAll(ProvinciaController::$KEY);
-        if($elements!=null){
-            $items= array();
-            foreach ($elements as $json_text){
-                $tempo=new Provincia();
+        $items = null;
+
+        $elements = $this->connection->hgetAll(ProvinciaController::$KEY);
+        if ($elements != null) {
+            $items = array();
+            foreach ($elements as $json_text) {
+                $tempo = new Provincia();
                 $tempo->loadfromJSON($json_text);
-                array_push($items,$tempo);
+                array_push($items, $tempo);
             }
         }
         return $items;
@@ -51,14 +51,21 @@ class ProvinciaController
             $item = new Provincia();
             $item->loadfromJSON($json_text);
         }
-        return $item;        
+        return $item;
     }
     // Falta por hacer este método y el de findLocalidad
-/*     function getAllLocalidades():?array
+    function getAllLocalidades(): ?array
     {
         $item = null;
-        $elements=$this->connection->hgetAll(ProvinciaController::$KEY);
-
-
+        $elements = $this->connection->hgetAll(ProvinciaController::$KEY);
+        if ($elements != null) {
+            $items = [];
+            foreach ($elements as $json_text) {
+                $tempo = new Provincia();
+                $tempo->loadfromJSON($json_text);
+                array_push($items, $tempo);
+            }
+        }
+        return $items;
     }
- */}
+}
