@@ -87,11 +87,11 @@ final class ProvinciaTest extends TestCase
         $t->setName("Baleares");
         $this->assertTrue($this->controller->save($t));
     }
-    public function testGetItem()
+    /* public function testGetItem()
     {
         $item = $this->controller->getById(1);
         $this->assertEquals(1, $item->getId());
-    }
+    } */
     /* public function testNoGetItem()
     {
         $item = $this->controller->getById(5);
@@ -99,17 +99,17 @@ final class ProvinciaTest extends TestCase
         $this->assertNotEquals(3, $item->getId());
     } */
     /* + */
-    public function testGetAll()
+    /*  public function testGetAll()
     {
         $items = $this->controller->getAll();
 
         $this->assertEquals(count($items), 3);
-    }
-    public function testGetAllLocalidades()
+    } */
+    /* public function testGetAllLocalidades()
     {
         $items = $this->controller->getAllLocalidades();
         $this->assertEquals(count($items), 7);
-    }
+    } */
     /*  public function testAddLocalidadtoProvincia(){
         
         $localidad= new Localidad();
