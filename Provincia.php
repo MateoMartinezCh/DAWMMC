@@ -45,7 +45,8 @@ class Provincia implements JsonSerializable
         return
             [
                 'id'   => $this->getId(),
-                'name' => $this->getName()
+                'name' => $this->getName(),
+                'active' => $this->getActive()
 
                 //'localidades' => $this->getLocalidades()
             ];
