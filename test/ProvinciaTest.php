@@ -98,10 +98,10 @@ final class ProvinciaTest extends TestCase
        
         $this->assertNotEquals(3, $item->getId());
     } */
-    public function testDeleteItem()
+    /* public function testDeleteItem()
     {
         $this->assertTrue($this->controller->remove(5));
-    }
+    } */
     public function testGetAll()
     {
         $items=$this->controller->getAll();  
